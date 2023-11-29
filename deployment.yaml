@@ -24,7 +24,7 @@ spec:
         deployment: my-app
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/eap-ocp/web-app-in-eap-on-ocp@sha256:7843794093b01505c786dd1e7760c13f4b81c68b69c3a22ed8fbc4f8e402b3de
+      - image: web-app-in-eap-on-ocp:latest
         imagePullPolicy: IfNotPresent
         name: web-app-in-eap-on-ocp
         ports:

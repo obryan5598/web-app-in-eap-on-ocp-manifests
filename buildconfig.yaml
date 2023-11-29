@@ -1,0 +1,28 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: web-app-in-eap-on-ocp
+  namespace: eap-ocp
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: web-app-in-eap-on-ocp:latest
+  source:
+    binary: {}
+    type: Binary
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: eap74-openjdk17-openshift-rhel8:latest
+        namespace: eap-ocp
+    type: Source
+  triggers:
+  - github:
+      secret: fI_qnpZ1iIIhysXQ9Ebl
+    type: GitHub
+  - generic:
+      secret: wQqKXl7EnqNh2BZAXT4c
+    type: Generic

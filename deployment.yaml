@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "3"
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"web-app-in-eap-on-ocp:latest","namespace":"eap-ocp"},"fieldPath":"spec.template.spec.containers[?(@.name==\"web-app-in-eap-on-ocp\")].image"}]'
+  labels:
+    app: my-app
+  name: my-app
+  namespace: eap-ocp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: my-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        deployment: my-app
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/eap-ocp/web-app-in-eap-on-ocp@sha256:7843794093b01505c786dd1e7760c13f4b81c68b69c3a22ed8fbc4f8e402b3de
+        imagePullPolicy: IfNotPresent
+        name: web-app-in-eap-on-ocp
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8443
+          protocol: TCP
+        - containerPort: 8778
+          protocol: TCP
+        resources: {}
+      restartPolicy: Always

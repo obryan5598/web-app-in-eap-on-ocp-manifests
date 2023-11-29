@@ -1,0 +1,15 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: web-app-in-eap-on-ocp
+  namespace: eap-ocp
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: v1.0
+      from:
+        kind: DockerImage
+        name: "image-registry.openshift-image-registry.svc:5000/eap-ocp/web-app-in-eap-on-ocp:latest"
+      importPolicy:
+        scheduled: true

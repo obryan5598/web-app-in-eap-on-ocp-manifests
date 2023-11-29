@@ -5,11 +5,11 @@ metadata:
   namespace: eap-ocp
 spec:
   lookupPolicy:
-    local: true
+    local: false
   tags:
     - name: latest
       from:
         kind: DockerImage
-        name: "default-route-openshift-image-registry.apps.cluster-fvw6c.fvw6c.sandbox1281.opentlc.com/eap-ocp/web-app-in-eap-on-ocp"
+        name: "default-route-openshift-image-registry.apps.cluster-fvw6c.fvw6c.sandbox1281.opentlc.com/eap-ocp/web-app-in-eap-on-ocp:latest"
       importPolicy:
         scheduled: true

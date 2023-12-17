@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   annotations:
     deployment.kubernetes.io/revision: "3"
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"web-app-in-eap-on-ocp:latest","namespace":"eap-ocp"},"fieldPath":"spec.template.spec.containers[?(@.name==\"web-app-in-eap-on-ocp\")].image"}]'
   labels:
     app: web-app-in-eap-on-ocp
   name: web-app-in-eap-on-ocp

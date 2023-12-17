@@ -10,6 +10,6 @@ spec:
     - name: latest
       from:
         kind: DockerImage
-        name: "quay.io/obryan5598/web-app-in-eap-on-ocp:latest"
+        name: "quay.io/obryan5598/web-app-in-eap-on-ocp"
       importPolicy:
         scheduled: true

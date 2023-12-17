@@ -22,7 +22,6 @@ spec:
     spec:
       containers:
       - image: web-app-in-eap-on-ocp:latest
-        imagePullPolicy: IfNotPresent
         name: web-app-in-eap-on-ocp
         ports:
         - containerPort: 8080

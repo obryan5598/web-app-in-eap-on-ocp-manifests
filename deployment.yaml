@@ -23,7 +23,7 @@ spec:
         deployment: web-app-in-eap-on-ocp
     spec:
       containers:
-      - image: web-app-in-eap-on-ocp:latest
+      - image: web-app-in-eap-on-ocp:1.0
         imagePullPolicy: IfNotPresent
         name: web-app-in-eap-on-ocp
         ports:

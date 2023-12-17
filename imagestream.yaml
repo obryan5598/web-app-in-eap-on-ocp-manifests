@@ -10,6 +10,6 @@ spec:
     - name: latest
       from:
         kind: DockerImage
-        name: "default-route-openshift-image-registry.apps.cluster-fvw6c.fvw6c.sandbox1281.opentlc.com/eap-ocp/web-app-in-eap-on-ocp:latest"
+        name: "quay.io/obryan5598/web-app-in-eap-on-ocp:latest"
       importPolicy:
         scheduled: true

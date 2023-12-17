@@ -5,14 +5,14 @@ metadata:
     deployment.kubernetes.io/revision: "3"
     image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"web-app-in-eap-on-ocp:latest","namespace":"eap-ocp"},"fieldPath":"spec.template.spec.containers[?(@.name==\"web-app-in-eap-on-ocp\")].image"}]'
   labels:
-    app: my-app
-  name: my-app
+    app: web-app-in-eap-on-ocp
+  name: web-app-in-eap-on-ocp
   namespace: eap-ocp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      deployment: my-app
+      deployment: web-app-in-eap-on-ocp
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -21,10 +21,10 @@ spec:
   template:
     metadata:
       labels:
-        deployment: my-app
+        deployment: web-app-in-eap-on-ocp
     spec:
       containers:
-      - image: web-app-in-eap-on-ocp:latest
+      - image: web-app-in-eap-on-ocp:1.0
         imagePullPolicy: IfNotPresent
         name: web-app-in-eap-on-ocp
         ports:

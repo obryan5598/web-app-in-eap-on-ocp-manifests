@@ -6,9 +6,11 @@ metadata:
 spec:
   nodeSelector: null
   output:
+    pushSecret:
+      name: quay
     to:
-      kind: ImageStreamTag
-      name: web-app-in-eap-on-ocp:latest
+      kind: DockerImage
+      name: quay.io/obryan5598/web-app-in-eap-on-ocp:latest
   source:
     binary: {}
     type: Binary
